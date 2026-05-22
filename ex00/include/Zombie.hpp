@@ -23,9 +23,10 @@ class Zombie
 	public:
 		Zombie(std::string name);
 		~Zombie();
-		void	announce(void);
-		void	randomChump(std::string name);
-		Zombie*	newZombie(std::string name);
+		void		announce(void);
+		std::string	getName(void);
 };
 
+void	randomChump(std::string name);
+Zombie*	newZombie(std::string name);
 #endif

@@ -15,19 +15,26 @@
 int	main(void)
 {
 	int	index;
+	std::string name;
 
 	std::cout << "1 : Heap" << std::endl;
-	std::cout << "2 : stack" << std::endl;
+	std::cout << "2 : Stack" << std::endl;
 	std::cin >> index;
 	std::cin.clear();
 	std::cin.ignore(10000, '\n');
+	std::getline(std::cin, name);
 	if (index == 1)
 	{
+		Zombie* z;
 
+		z = newZombie(name);
+		z->announce();
+		std::cout << z->getName() << ": has been destroyed" << std::endl;
+		delete (z);
 	}
 	else if (index == 2)
-	{
-		
-	}
+		randomChump(name);
+	else
+		std::cout << "Wrong number" << std::endl;
 	return (0);
 }
