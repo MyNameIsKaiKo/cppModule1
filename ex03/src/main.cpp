@@ -23,7 +23,7 @@ int	main(void)
 	bob.attack();
 	Weapon club2 = Weapon("crude spied club");
 	HumanB jin("Jin");
-	jin.setWeapon(club2);
+	jin.setWeapon(&club2);
 	jin.attack();
 	club2.setType("some other type of club");
 	jin.attack();

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jleray <marvin@d42.fr>                     +#+  +:+       +#+        */
+/*   By: jleray <marvin@d43.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/22 19:27:00 by jleray            #+#    #+#             */
-/*   Updated: 2026/05/22 19:27:00 by jleray           ###   ########.fr       */
+/*   Created: 2027/05/22 19:27:00 by jleray            #+#    #+#             */
+/*   Updated: 2027/05/22 19:27:00 by jleray           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,3 +23,4 @@ void	HumanA::attack(void)
 	std::cout << " attacks with their ";
 	std::cout << this->_weapon.getType() << std::endl;
 }
+
