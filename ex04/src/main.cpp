@@ -16,11 +16,12 @@ std::string	findAndReplace(std::string line, std::string search, std::string rep
 {
 	size_t pos = 0;
 
-	pos = line.find(search);
-	while (pos > 0 && pos != std::string::npos)
+	pos = line.find(search, pos);
+	while (pos != std::string::npos)
 	{
 		line.erase(pos, search.length());
 		line.insert(pos, replace);
+		pos = line.find(search, pos);
 	}
 	return (line);
 }
@@ -32,13 +33,17 @@ int	main(int ac, char **av)
 	std::string	in = av[1], out = av[1], search = av[2], replace = av[3];
 	std::string line;
 	out += ".replace";
-	std::ifstream inFile(in);
+	std::ifstream inFile;
+	inFile.open(av[1]);
+	if (search == "\0")
+		return (1);
 	if (!inFile.is_open())
 	{
 		std::cerr << "Error: Could not open input file." << std::endl;
 		return (1);
 	}
-	std::ofstream outFile(out);
+	std::ofstream outFile;
+	outFile.open(out.c_str());
 	if (!outFile.is_open())
 	{
 		inFile.close();
@@ -47,7 +52,7 @@ int	main(int ac, char **av)
 	}
 	while (std::getline(inFile, line))
 	{
-		findAndReplace(line, search, replace);
+		line = findAndReplace(line, search, replace);
 		outFile << line << std::endl;
 	}
 	return (0);
